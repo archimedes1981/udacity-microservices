@@ -1,0 +1,116 @@
+Sending build context to Docker daemon  60.14MB
+Step 1/8 : FROM python:3.7.3-stretch
+ ---> 34a518642c76
+Step 2/8 : WORKDIR /app
+ ---> Using cache
+ ---> 31a1d73c4e43
+Step 3/8 : COPY app.py /app/
+ ---> da863cae2bee
+Step 4/8 : COPY model_data/ /app/model_data/
+ ---> 707796db7faf
+Step 5/8 : COPY requirements.txt /app/
+ ---> 557d9360503f
+Step 6/8 : RUN pip install --upgrade pip && pip install -r /app/requirements.txt
+ ---> Running in 3fed21ed336b
+Collecting pip
+  Downloading https://files.pythonhosted.org/packages/30/db/9e38760b32e3e7f40cce46dd5fb107b8c73840df38f0046d8e6514e675a1/pip-19.2.3-py2.py3-none-any.whl (1.4MB)
+Installing collected packages: pip
+  Found existing installation: pip 19.1.1
+    Uninstalling pip-19.1.1:
+      Successfully uninstalled pip-19.1.1
+Successfully installed pip-19.2.3
+Collecting Flask (from -r /app/requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/9b/93/628509b8d5dc749656a9641f4caf13540e2cdec85276964ff8f43bbb1d3b/Flask-1.1.1-py2.py3-none-any.whl (94kB)
+Collecting numpy (from -r /app/requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/ba/e0/46e2f0540370f2661b044647fa447fef2ecbcc8f7cdb4329ca2feb03fb23/numpy-1.17.2-cp37-cp37m-manylinux1_x86_64.whl (20.3MB)
+Collecting pandas (from -r /app/requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/7e/ab/ea76361f9d3e732e114adcd801d2820d5319c23d0ac5482fa3b412db217e/pandas-0.25.1-cp37-cp37m-manylinux1_x86_64.whl (10.4MB)
+Collecting scikit-learn==0.20.2 (from -r /app/requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/90/de/6c4c572d39db91104a31e5b1559df4712f241cdf3f6206f49954adaa942c/scikit_learn-0.20.2-cp37-cp37m-manylinux1_x86_64.whl (5.4MB)
+Collecting pylint (from -r /app/requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/60/c2/b3f73f4ac008bef6e75bca4992f3963b3f85942e0277237721ef1c151f0d/pylint-2.3.1-py3-none-any.whl (765kB)
+Collecting click>=5.1 (from Flask->-r /app/requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/fa/37/45185cb5abbc30d7257104c434fe0b07e5a195a6847506c074527aa599ec/Click-7.0-py2.py3-none-any.whl (81kB)
+Collecting Jinja2>=2.10.1 (from Flask->-r /app/requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/1d/e7/fd8b501e7a6dfe492a433deb7b9d833d39ca74916fa8bc63dd1a4947a671/Jinja2-2.10.1-py2.py3-none-any.whl (124kB)
+Collecting itsdangerous>=0.24 (from Flask->-r /app/requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/76/ae/44b03b253d6fade317f32c24d100b3b35c2239807046a4c953c7b89fa49e/itsdangerous-1.1.0-py2.py3-none-any.whl
+Collecting Werkzeug>=0.15 (from Flask->-r /app/requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/b7/61/c0a1adf9ad80db012ed7191af98fa05faa95fa09eceb71bb6fa8b66e6a43/Werkzeug-0.15.6-py2.py3-none-any.whl (328kB)
+Collecting pytz>=2017.2 (from pandas->-r /app/requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/87/76/46d697698a143e05f77bec5a526bf4e56a0be61d63425b68f4ba553b51f2/pytz-2019.2-py2.py3-none-any.whl (508kB)
+Collecting python-dateutil>=2.6.1 (from pandas->-r /app/requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/41/17/c62faccbfbd163c7f57f3844689e3a78bae1f403648a6afb1d0866d87fbb/python_dateutil-2.8.0-py2.py3-none-any.whl (226kB)
+Collecting scipy>=0.13.3 (from scikit-learn==0.20.2->-r /app/requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/94/7f/b535ec711cbcc3246abea4385d17e1b325d4c3404dd86f15fc4f3dba1dbb/scipy-1.3.1-cp37-cp37m-manylinux1_x86_64.whl (25.2MB)
+Collecting astroid<3,>=2.2.0 (from pylint->-r /app/requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/d5/ad/7221a62a2dbce5c3b8c57fd18e1052c7331adc19b3f27f1561aa6e620db2/astroid-2.2.5-py3-none-any.whl (193kB)
+Collecting isort<5,>=4.2.5 (from pylint->-r /app/requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/e5/b0/c121fd1fa3419ea9bfd55c7f9c4fedfec5143208d8c7ad3ce3db6c623c21/isort-4.3.21-py2.py3-none-any.whl (42kB)
+Collecting mccabe<0.7,>=0.6 (from pylint->-r /app/requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/87/89/479dc97e18549e21354893e4ee4ef36db1d237534982482c3681ee6e7b57/mccabe-0.6.1-py2.py3-none-any.whl
+Collecting MarkupSafe>=0.23 (from Jinja2>=2.10.1->Flask->-r /app/requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/98/7b/ff284bd8c80654e471b769062a9b43cc5d03e7a615048d96f4619df8d420/MarkupSafe-1.1.1-cp37-cp37m-manylinux1_x86_64.whl
+Collecting six>=1.5 (from python-dateutil>=2.6.1->pandas->-r /app/requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/73/fb/00a976f728d0d1fecfe898238ce23f502a721c0ac0ecfedb80e0d88c64e9/six-1.12.0-py2.py3-none-any.whl
+Collecting wrapt (from astroid<3,>=2.2.0->pylint->-r /app/requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/23/84/323c2415280bc4fc880ac5050dddfb3c8062c2552b34c2e512eb4aa68f79/wrapt-1.11.2.tar.gz
+Collecting lazy-object-proxy (from astroid<3,>=2.2.0->pylint->-r /app/requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/11/a0/98687a75455408ce1b222b46ef66062b5af422c3f7451f080663ba68b5df/lazy_object_proxy-1.4.2-cp37-cp37m-manylinux1_x86_64.whl (49kB)
+Collecting typed-ast>=1.3.0; implementation_name == "cpython" (from astroid<3,>=2.2.0->pylint->-r /app/requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/fb/56/dd4e168a0009da85c78c6cfe91f5b2df2c7bbed60f3ba778c4a71289e6fb/typed_ast-1.4.0-cp37-cp37m-manylinux1_x86_64.whl (736kB)
+Building wheels for collected packages: wrapt
+  Building wheel for wrapt (setup.py): started
+  Building wheel for wrapt (setup.py): finished with status 'done'
+  Created wheel for wrapt: filename=wrapt-1.11.2-cp37-cp37m-linux_x86_64.whl size=71292 sha256=901913fef9a5a53b9a289513a7be86d8c5df67625b3380eedda953d1b4ad64a8
+  Stored in directory: /root/.cache/pip/wheels/d7/de/2e/efa132238792efb6459a96e85916ef8597fcb3d2ae51590dfd
+Successfully built wrapt
+Installing collected packages: click, MarkupSafe, Jinja2, itsdangerous, Werkzeug, Flask, numpy, pytz, six, python-dateutil, pandas, scipy, scikit-learn, wrapt, lazy-object-proxy, typed-ast, astroid, isort, mccabe, pylint
+Successfully installed Flask-1.1.1 Jinja2-2.10.1 MarkupSafe-1.1.1 Werkzeug-0.15.6 astroid-2.2.5 click-7.0 isort-4.3.21 itsdangerous-1.1.0 lazy-object-proxy-1.4.2 mccabe-0.6.1 numpy-1.17.2 pandas-0.25.1 pylint-2.3.1 python-dateutil-2.8.0 pytz-2019.2 scikit-learn-0.20.2 scipy-1.3.1 six-1.12.0 typed-ast-1.4.0 wrapt-1.11.2
+Removing intermediate container 3fed21ed336b
+ ---> a443f7da1d30
+Step 7/8 : EXPOSE 80
+ ---> Running in 863d1d504877
+Removing intermediate container 863d1d504877
+ ---> 0f4d296ca30b
+Step 8/8 : CMD ["python", "/app/app.py"]
+ ---> Running in 937a7a00f6a3
+Removing intermediate container 937a7a00f6a3
+ ---> 7323b22dfd29
+Successfully built 7323b22dfd29
+Successfully tagged archimedes1981/udacity:latest
+REPOSITORY               TAG                 IMAGE ID            CREATED                  SIZE
+archimedes1981/udacity   latest              7323b22dfd29        Less than a second ago   1.26GB
+<none>                   <none>              6031ff84521b        11 minutes ago           1.26GB
+<none>                   <none>              200c88d83baf        14 minutes ago           1.26GB
+<none>                   <none>              e436375056bd        28 minutes ago           1.26GB
+hadolint/hadolint        latest              34c279239e26        9 days ago               3.26MB
+hadolint/hadolint        latest-debian       c8dfad7403a1        9 days ago               58.6MB
+python                   3.7.3-stretch       34a518642c76        3 months ago             929MB
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+/usr/local/lib/python3.7/site-packages/sklearn/base.py:251: UserWarning: Trying to unpickle estimator DecisionTreeRegressor from version 0.20.3 when using version 0.20.2. This might lead to breaking code or invalid results. Use at your own risk.
+  UserWarning)
+/usr/local/lib/python3.7/site-packages/sklearn/base.py:251: UserWarning: Trying to unpickle estimator GradientBoostingRegressor from version 0.20.3 when using version 0.20.2. This might lead to breaking code or invalid results. Use at your own risk.
+  UserWarning)
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/sklearn/base.py:251: UserWarning: Trying to unpickle estimator DecisionTreeRegressor from version 0.20.3 when using version 0.20.2. This might lead to breaking code or invalid results. Use at your own risk.
+  UserWarning)
+/usr/local/lib/python3.7/site-packages/sklearn/base.py:251: UserWarning: Trying to unpickle estimator GradientBoostingRegressor from version 0.20.3 when using version 0.20.2. This might lead to breaking code or invalid results. Use at your own risk.
+  UserWarning)
+ * Debugger is active!
+ * Debugger PIN: 474-016-884
+[2019-09-19 12:24:45,926] INFO in app: JSON payload:
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2019-09-19 12:24:45,950] INFO in app: Inference payload DataFrame:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2019-09-19 12:24:45,974] INFO in app: Scaling Payload:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2019-09-19 12:24:45,978] INFO in app: Output prediction: [20.35373177134412]
+172.17.0.1 - - [19/Sep/2019 12:24:45] "POST /predict HTTP/1.1" 200 -
