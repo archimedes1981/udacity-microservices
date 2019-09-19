@@ -1,6 +1,7 @@
 # udacity-microservices
  Udacity Microservices Project
 <include a CircleCI status badge, here>
+
 [![CircleCI](https://circleci.com/gh/archimedes1981/udacity-microservices/tree/master.svg?style=svg)](https://circleci.com/gh/archimedes1981/udacity-microservices/tree/master)
 
 ## Project Overview
